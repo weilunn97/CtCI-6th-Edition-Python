@@ -1,34 +1,13 @@
 # O(N)
 import unittest
+from collections import Counter
+from heapq import heappop, heapify, heappush
 
 
 def pal_perm(phrase):
-    '''function checks if a string is a permutation of a palindrome or not'''
-    table = [0 for _ in range(ord('z') - ord('a') + 1)]
-    countodd = 0
-    for c in phrase:
-        x = char_number(c)
-        if x != -1:
-            table[x] += 1
-            if table[x] % 2:
-                countodd += 1
-            else:
-                countodd -= 1
-
-    return countodd <= 1
-
-def char_number(c):
-    a = ord('a')
-    z = ord('z')
-    A = ord('A')
-    Z = ord('Z')
-    val = ord(c)
-
-    if a <= val <= z:
-        return val - a
-    elif A <= val <= Z:
-        return val - A
-    return -1
+    phrase = phrase.lower().replace(' ', '')
+    min_heap = [v & 1 for v in Counter(phrase).values()]
+    return sum(min_heap) <= 1
 
 
 class Test(unittest.TestCase):
@@ -47,6 +26,7 @@ class Test(unittest.TestCase):
         for [test_string, expected] in self.data:
             actual = pal_perm(test_string)
             self.assertEqual(actual, expected)
+
 
 if __name__ == "__main__":
     unittest.main()

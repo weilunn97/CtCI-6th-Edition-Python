@@ -1,7 +1,7 @@
 from random import randint
 
 
-class LinkedListNode:
+class Node:
 
     def __init__(self, value, nextNode=None, prevNode=None):
         self.value = value
@@ -40,17 +40,17 @@ class LinkedList:
 
     def add(self, value):
         if self.head is None:
-            self.tail = self.head = LinkedListNode(value)
+            self.tail = self.head = Node(value)
         else:
-            self.tail.next = LinkedListNode(value)
+            self.tail.next = Node(value)
             self.tail = self.tail.next
         return self.tail
 
     def add_to_beginning(self, value):
         if self.head is None:
-            self.tail = self.head = LinkedListNode(value)
+            self.tail = self.head = Node(value)
         else:
-            self.head = LinkedListNode(value, self.head)
+            self.head = Node(value, self.head)
         return self.head
 
     def add_multiple(self, values):
@@ -68,8 +68,8 @@ class DoublyLinkedList(LinkedList):
 
     def add(self, value):
         if self.head is None:
-            self.tail = self.head = LinkedListNode(value, None, self.tail)
+            self.tail = self.head = Node(value, None, self.tail)
         else:
-            self.tail.next = LinkedListNode(value)
+            self.tail.next = Node(value)
             self.tail = self.tail.next
         return self

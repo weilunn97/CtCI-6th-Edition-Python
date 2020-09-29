@@ -3,18 +3,11 @@ import unittest
 
 
 def unique(string):
-    # Assuming character set is ASCII (128 characters)
-    if len(string) > 128:
-        return False
-
-    char_set = [False for _ in range(128)]
+    s = set()
     for char in string:
-        val = ord(char)
-        if char_set[val]:
-            # Char already found in string
+        if ord(char) in s:
             return False
-        char_set[val] = True
-
+        s.add(ord(char))
     return True
 
 
@@ -31,6 +24,7 @@ class Test(unittest.TestCase):
         for test_string in self.dataF:
             actual = unique(test_string)
             self.assertFalse(actual)
+
 
 if __name__ == "__main__":
     unittest.main()

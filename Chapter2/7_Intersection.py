@@ -1,4 +1,5 @@
-from LinkedList import LinkedList
+# https://leetcode.com/problems/intersection-of-two-linked-lists/
+from .LinkedList import LinkedList
 
 
 def intersection(list1, list2):

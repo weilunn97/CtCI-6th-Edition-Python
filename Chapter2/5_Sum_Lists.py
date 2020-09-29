@@ -1,4 +1,4 @@
-from LinkedList import LinkedList
+from .LinkedList import LinkedList
 
 
 def sum_lists(ll_a, ll_b):

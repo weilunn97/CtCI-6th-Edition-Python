@@ -1,4 +1,5 @@
-from LinkedList import LinkedList
+# https://leetcode.com/problems/palindrome-linked-list/submissions/
+from .LinkedList import LinkedList
 
 
 def is_palindrome(ll):

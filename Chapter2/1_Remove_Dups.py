@@ -1,4 +1,5 @@
-from LinkedList import LinkedList
+# https://leetcode.com/problems/remove-duplicates-from-sorted-list/submissions/
+from .LinkedList import LinkedList
 
 
 def remove_dups(ll):
@@ -32,6 +33,7 @@ def remove_dups_followup(ll):
         current = current.next
 
     return ll.head
+
 
 ll = LinkedList()
 ll.generate(100, 0, 9)

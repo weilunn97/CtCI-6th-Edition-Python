@@ -7,9 +7,9 @@ def is_substring(string, sub):
 
 
 def string_rotation(s1, s2):
-    if len(s1) == len(s2) != 0:
-        return is_substring(s1 + s1, s2)
-    return False
+    if len(s1) != len(s2):
+        return False
+    return is_substring(s1 + s1, s2)
 
 
 class Test(unittest.TestCase):
@@ -24,6 +24,7 @@ class Test(unittest.TestCase):
         for [s1, s2, expected] in self.data:
             actual = string_rotation(s1, s2)
             self.assertEqual(actual, expected)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,4 @@
-from LinkedList import LinkedList
-
+# https://leetcode.com/problems/linked-list-cycle/submissions/
 
 def loop_detection(ll):
     fast = slow = ll.head

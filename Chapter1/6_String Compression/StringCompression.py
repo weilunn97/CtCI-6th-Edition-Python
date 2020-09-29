@@ -3,20 +3,25 @@ import unittest
 
 
 def string_compression(string):
-    compressed = []
-    counter = 0
+    if not string:
+        return ""
+    char, count = string[0], 0
+    chars, counts = [], []
 
-    for i in range(len(string)):
-        if i != 0 and string[i] != string[i - 1]:
-            compressed.append(string[i - 1] + str(counter))
-            counter = 0
-        counter += 1
-
-    # add last repeated character
-    compressed.append(string[-1] + str(counter))
-
-    # returns original string if compressed string isn't smaller
-    return min(string, ''.join(compressed), key=len)
+    for s in string:
+        if s == char:
+            char = s
+            count += 1
+        else:
+            chars.append(char)
+            counts.append(str(count))
+            char = s
+            count = 1
+    chars.append(char)
+    counts.append(str(count))
+    final = [(char, count) for char, count in zip(chars, counts)]
+    final = ''.join([f for ff in final for f in ff])
+    return final if len(final) < len(string) else string
 
 
 class Test(unittest.TestCase):
@@ -30,6 +35,7 @@ class Test(unittest.TestCase):
         for [test_string, expected] in self.data:
             actual = string_compression(test_string)
             self.assertEqual(actual, expected)
+
 
 if __name__ == "__main__":
     unittest.main()

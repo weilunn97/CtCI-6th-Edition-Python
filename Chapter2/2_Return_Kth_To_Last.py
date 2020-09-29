@@ -1,4 +1,5 @@
-from LinkedList import LinkedList
+# https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+from .LinkedList import LinkedList
 
 
 def kth_to_last(ll, k):
@@ -13,6 +14,7 @@ def kth_to_last(ll, k):
         runner = runner.next
 
     return current
+
 
 ll = LinkedList()
 ll.generate(10, 0, 99)
